@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickEats - Diseño de Aplicación Móvil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Kanit:ital,wght@0,800;1,800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            overflow: hidden;
+        }
+
+        .font-logo {
+            font-family: 'Kanit', sans-serif;
+        }
+
+        .slide {
+            display: none;
+            height: 100vh;
+            width: 100vw;
+            flex-direction: column;
+        }
+
+        .slide.active {
+            display: flex;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .mockup-img {
+            height: 65vh;
+            object-fit: contain;
+            border-radius: 2rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            background: white;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="text-gray-800">
+
+    <!-- Navegación Flotante -->
+    <div class="fixed bottom-6 right-6 flex gap-4 z-50">
+        <button onclick="prevSlide()"
+            class="bg-white p-3 rounded-full shadow-lg hover:bg-gray-50 transition border border-gray-200">
+            <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+        </button>
+        <button onclick="nextSlide()"
+            class="bg-[#FF6B6B] p-3 rounded-full shadow-lg hover:bg-[#ff5252] transition text-white">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </button>
+    </div>
+
+    <div class="fixed top-6 right-6 text-gray-400 text-sm font-semibold tracking-widest z-50">
+        SLIDE <span id="slide-counter">1</span> / 10
+    </div>
+
+    <!-- Slide 1: Portada -->
+    <div class="slide active justify-center items-center text-center bg-white">
+        <div class="text-7xl font-extrabold tracking-tight font-logo mb-6">
+            <span class="text-gray-900">Quick</span><span class="text-[#FF6B6B]">Eats</span>
+        </div>
+        <h1 class="text-3xl font-bold text-gray-800 mb-2">Diseño de Aplicación Móvil</h1>
+        <p class="text-xl text-gray-500 mb-10 italic">"Del móvil a tu mesa en un clic"</p>
+        <div class="mt-8 pt-8 border-t border-gray-200 w-1/3">
+            <p class="text-md font-semibold text-gray-700">Hecho Por:</p>
+            <p class="text-md text-gray-600">Carlos J Samper Enescu</p>
+            <p class="text-sm text-gray-500">2º DAW - IES Álvaro Falomir</p>
+        </div>
+    </div>
+
+    <!-- Slide 2: Idea y Concepto -->
+    <div class="slide p-20 justify-center">
+        <div class="max-w-4xl mx-auto w-full">
+            <h2 class="text-4xl font-bold mb-12 border-l-4 border-[#FF6B6B] pl-4">Concepto del Proyecto</h2>
+            <div class="grid grid-cols-2 gap-12">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="text-[#FF6B6B] mb-4"><svg class="w-10 h-10" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                            </path>
+                        </svg></div>
+                    <h3 class="text-2xl font-bold mb-2">Público</h3>
+                    <p class="text-gray-600 text-lg">De 18 a 60 años.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="text-[#FF6B6B] mb-4"><svg class="w-10 h-10" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg></div>
+                    <h3 class="text-2xl font-bold mb-2">Objetivo</h3>
+                    <p class="text-gray-600 text-lg">Desarrollar una aplicación altamente intuitiva y fácil de usar,
+                        garantizando una curva de aprendizaje casi nula para cualquier rango de edad.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Pilares Visuales -->
+    <div class="slide p-20 justify-center">
+        <div class="max-w-5xl mx-auto w-full">
+            <h2 class="text-4xl font-bold mb-12 border-l-4 border-[#FF6B6B] pl-4">Pilares Visuales</h2>
+            <div class="grid grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <div class="h-16 w-16 rounded-full bg-[#FF6B6B] mb-6 shadow-md"></div>
+                    <h3 class="text-xl font-bold mb-3">Color Naranja Coral</h3>
+                    <p class="text-gray-600 text-sm">Utilizado exclusivamente para llamadas a la acción (CTAs) y acentos
+                        de atención. Aporta vitalidad sin sobrecargar la interfaz.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <div class="text-5xl font-bold text-gray-900 mb-6">Aa</div>
+                    <h3 class="text-xl font-bold mb-3">Tipografía Inter</h3>
+                    <p class="text-gray-600 text-sm">Fuente geométrica sin serifa. Altamente legible en pantallas
+                        móviles, garantizando claridad tanto en menús como en precios.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <div class="flex gap-2 mb-6">
+                        <div class="h-10 w-24 bg-gray-100 rounded-xl border border-gray-200"></div>
+                        <div class="h-10 w-10 bg-gray-100 rounded-full border border-gray-200"></div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Soft UI</h3>
+                    <p class="text-gray-600 text-sm">Uso extenso de espacios en blanco (negative space), esquinas
+                        redondeadas y tarjetas con sombras suaves para reducir la carga cognitiva.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Justificación e Investigación -->
+    <div class="slide p-20 justify-center">
+        <div class="max-w-5xl mx-auto w-full">
+            <h2 class="text-4xl font-bold mb-10 border-l-4 border-[#FF6B6B] pl-4">Justificación de Diseño</h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-blue-400 flex gap-6 items-center">
+                    <div
+                        class="w-16 h-16 bg-blue-50 text-blue-500 rounded-full flex items-center justify-center shrink-0">
+                        1</div>
+                    <div>
+                        <h4 class="text-lg font-bold">Accesibilidad Cognitiva y Rango de Edad</h4>
+                        <p class="text-gray-600 text-sm mt-1">Al dirigirnos a un público de hasta 60 años, se descartó
+                            el "Dark Mode". El modo claro (texto negro sobre fondo blanco) ofrece el mayor nivel de
+                            contraste, minimizando la fatiga visual en usuarios con vista cansada (presbicia) y
+                            maximizando la retención.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-orange-400 flex gap-6 items-center">
+                    <div
+                        class="w-16 h-16 bg-orange-50 text-orange-500 rounded-full flex items-center justify-center shrink-0">
+                        2</div>
+                    <div>
+                        <h4 class="text-lg font-bold">Psicología del Color en FoodTech</h4>
+                        <p class="text-gray-600 text-sm mt-1">El color naranja fomenta la urgencia, el dinamismo y
+                            estimula el apetito psicológicamente. Mantener el fondo blanco y aplicar el naranja solo en
+                            elementos interactivos dirige instintivamente al usuario hacia la conversión (pago).</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-green-400 flex gap-6 items-center">
+                    <div
+                        class="w-16 h-16 bg-green-50 text-green-500 rounded-full flex items-center justify-center shrink-0">
+                        3</div>
+                    <div>
+                        <h4 class="text-lg font-bold">Ley de Fitts y Ergonomía Móvil</h4>
+                        <p class="text-gray-600 text-sm mt-1">Se ha diseñado priorizando la "Thumb Zone" (zona del
+                            pulgar). Botones críticos como "Confirmar Pedido" o la barra de navegación ocupan el tercio
+                            inferior de la pantalla, haciendo que el usuario no tenga que estirar la mano, reduciendo la
+                            fricción en la usabilidad.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: Home -->
+    <div class="slide p-20 justify-center">
+        <h2 class="text-4xl font-bold text-center mb-10">Pantalla de Inicio</h2>
+        <div class="flex justify-center items-center gap-16">
+            <div class="text-center">
+                <img src="wirehome.png" class="mockup-img mb-4">
+                <p class="font-semibold text-gray-500">Wireframe Estructural</p>
+            </div>
+            <svg class="w-10 h-10 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3">
+                </path>
+            </svg>
+            <div class="text-center">
+                <img src="mocuphome.png" class="mockup-img mb-4">
+                <p class="font-bold text-[#FF6B6B]">Mockup Final</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 6: Menu -->
+    <div class="slide p-20 justify-center">
+        <h2 class="text-4xl font-bold text-center mb-10">Exploración de Menú</h2>
+        <div class="flex justify-center items-center gap-16">
+            <div class="text-center">
+                <img src="wireres.png" class="mockup-img mb-4">
+                <p class="font-semibold text-gray-500">Wireframe Estructural</p>
+            </div>
+            <svg class="w-10 h-10 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3">
+                </path>
+            </svg>
+            <div class="text-center">
+                <img src="mocupres.jpg" class="mockup-img mb-4">
+                <p class="font-bold text-[#FF6B6B]">Mockup Final</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 7: Checkout -->
+    <div class="slide p-20 justify-center">
+        <h2 class="text-4xl font-bold text-center mb-10">Proceso de Pago (Checkout)</h2>
+        <div class="flex justify-center items-center gap-16">
+            <div class="text-center">
+                <img src="wirepedido.png" class="mockup-img mb-4">
+                <p class="font-semibold text-gray-500">Wireframe Estructural</p>
+            </div>
+            <svg class="w-10 h-10 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3">
+                </path>
+            </svg>
+            <div class="text-center">
+                <img src="mocuppedido.png" class="mockup-img mb-4">
+                <p class="font-bold text-[#FF6B6B]">Mockup Final</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 8: Tracking -->
+    <div class="slide p-20 justify-center">
+        <h2 class="text-4xl font-bold text-center mb-10">Rastreo de Pedido</h2>
+        <div class="flex justify-center items-center gap-16">
+            <div class="text-center">
+                <img src="wirerasteo.png" class="mockup-img mb-4">
+                <p class="font-semibold text-gray-500">Wireframe Estructural</p>
+            </div>
+            <svg class="w-10 h-10 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3">
+                </path>
+            </svg>
+            <div class="text-center">
+                <img src="mocuprastreo.jpg" class="mockup-img mb-4">
+                <p class="font-bold text-[#FF6B6B]">Mockup Final</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 9: Profile -->
+    <div class="slide p-20 justify-center">
+        <h2 class="text-4xl font-bold text-center mb-10">Perfil de Usuario</h2>
+        <div class="flex justify-center items-center gap-16">
+            <div class="text-center">
+                <img src="wireperfil.png" class="mockup-img mb-4">
+                <p class="font-semibold text-gray-500">Wireframe Estructural</p>
+            </div>
+            <svg class="w-10 h-10 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3">
+                </path>
+            </svg>
+            <div class="text-center">
+                <img src="mocupperfil.png" class="mockup-img mb-4">
+                <p class="font-bold text-[#FF6B6B]">Mockup Final</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 10: Conclusion -->
+    <div class="slide p-20 justify-center items-center text-center bg-gray-900 text-white">
+        <div class="text-6xl font-extrabold tracking-tight font-logo mb-8">
+            <span>Quick</span><span class="text-[#FF6B6B]">Eats</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-6">Lista para Desarrollo</h2>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto">La transición de wireframes a componentes finales garantiza
+            que la estructura validada se potencie con una capa visual atractiva, cumpliendo directamente con el
+            objetivo de accesibilidad y retención de usuarios.</p>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const counter = document.getElementById('slide-counter');
+
+        function updateSlide() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                if (index === currentSlide) slide.classList.add('active');
+            });
+            counter.innerText = currentSlide + 1;
+        }
+
+        function nextSlide() {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                updateSlide();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlide();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+    </script>
+</body>
+
+</html>
